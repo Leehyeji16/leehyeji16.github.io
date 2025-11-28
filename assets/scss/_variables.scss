@@ -1,0 +1,133 @@
+// @font-face 정의 - Pretendard만 사용
+@font-face {
+  font-family: "Pretendard";
+  font-style: normal;
+  src: url("../font/pretendard/Pretendard-Thin.woff") format("woff");
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  font-style: normal;
+  src: url("../font/pretendard/Pretendard-ExtraLight.woff") format("woff");
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  font-style: normal;
+  src: url("../font/pretendard/Pretendard-Light.woff") format("woff");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  font-style: normal;
+  src: url("../font/pretendard/Pretendard-Regular.woff") format("woff");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  font-style: normal;
+  src: url("../font/pretendard/Pretendard-Medium.woff") format("woff");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  font-style: normal;
+  src: url("../font/pretendard/Pretendard-SemiBold.woff") format("woff");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  font-style: normal;
+  src: url("../font/pretendard/Pretendard-Bold.woff") format("woff");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  font-style: normal;
+  src: url("../font/pretendard/Pretendard-ExtraBold.woff") format("woff");
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: "NanumSquareNeo";
+  src: url("../font/NanumSquareNeo/NanumSquareNeoTTF-cBd.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NanumSquareNeo";
+  src: url("../font/NanumSquareNeo/NanumSquareNeoTTF-dEb.woff") format("woff");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+// 변수 정의
+$font-Pretendard: "Pretendard", sans-serif;
+$font-NanumSquareNeo: "NanumSquareNeo", "Pretendard", sans-serif;
+
+// 색상
+$white: #ffffff;
+$black: #000000;
+$primary: #228b18;
+$gray: #474747;
+$green: #1c9c43;
+
+//main Grid 아이템 색상
+$grid_darkGreen: #26793f; // grid-item-01 어두운 초록
+$grid_purple: #4b2bcc; // grid-item-02 보라색
+$grid_light_green: #ddeadd; // grid-item-03 연한 초록
+$grid_dark_gray: #182b30; // grid-item-04 어두운 회색
+
+// tab색상
+$tab_bg: #f9f9f9;
+$tab_text: #767676;
+$tab_active_bg: #2a2a2a;
+$tab_number: #a4a4a4;
+// footer
+$footer_bg: #2a2a2a;
+$footer_text: #a4a4a4;
+$footer_border: #3b3b3b;
+
+// 공통 색상
+$border_light: #e5e5e5;
+$border_subtle: rgba(0, 0, 0, 0.04);
+$gray_text: #767676;
+$white_60: rgba(255, 255, 255, 0.6);
+$btn_bg: #f4f4f4;
+$black_text: #222122;
+
+// 폰트 굵기
+$regular: 400;
+$medium: 500;
+$semiBold: 600;
+$bold: 700;
+$ebold: 800;
+
+// 자주 사용하는 크기
+$spacing_xs: 0.9rem; // 9px
+$spacing_md: 1.6rem; // 16px
+$spacing_lg: 2.4rem; // 24px
+$spacing_xl: 3.4rem; // 34px
+$spacing_2xl: 4.8rem; // 48px
+
+// 레이아웃 크기
+$container_width: 120rem; // 1200px
+$header_height: 11.4rem; // 114px
+
+// Mixin
+@mixin container {
+  max-width: 124rem;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
