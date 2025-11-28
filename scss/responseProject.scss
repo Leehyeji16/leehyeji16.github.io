@@ -1,0 +1,158 @@
+@use "./variables" as *;
+
+.container {
+  /* 농업•농촌 온실가스 감축사업 */
+  &#reductionProjectPage {
+    margin-top: 5.7rem;
+    padding-top: 11.4rem;
+    color: #222122;
+    line-height: normal;
+    .response_wrap {
+      .content_wrap {
+        .common_tit_wrap {
+          .tit_box {
+            h1 {
+              display: flex;
+              align-items: center;
+              gap: 1.2rem;
+              .h1_sub {
+                display: flex;
+                align-items: center;
+                width: max-content;
+                height: 3.8rem;
+                padding: 0 1.6rem;
+                background-color: #E6E6E6;
+                border-radius: 3rem;
+                font-size: 1.6rem;
+                font-weight: $semiBold;
+                color: #222122;
+              }
+            }
+          }
+        }
+      }
+    }
+    .project_list_wrap {
+      padding-bottom: 10rem;
+      .content_wrap {
+        .tab_wrap {
+          h3 {
+            margin-bottom: 3rem;
+            font-size: 3.4rem;
+            font-weight: $bold;
+            line-height: 4.4rem;
+          }
+          .tab_btn_wrap {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 4.8rem;
+            .btn_tab_project {
+              display: flex;
+              align-items: center;
+              height: 5rem;
+              padding: 0 2rem;
+              background-color: #F9F9F9;
+              border-radius: 3rem;
+              font-size: 1.8rem;
+              font-weight: $semiBold;
+              color: #767676;
+              &.active {
+                background-color: #2A2A2A;
+                font-weight: $bold;
+                color: $white;
+              }
+            }
+          }
+          .tab_contents {
+            .tab_cont {
+              display: none;
+              &.active {
+                display: block;
+              }
+              .img_wrap {
+                overflow: hidden;
+                width: 100%;
+                border-radius: 2rem;
+                img {
+                  width: 100%;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    @media (max-width: 768px) {
+      margin-top: 4.2rem;
+      padding-top: 6.6rem;
+      .response_wrap {
+        .content_wrap {
+          .common_tit_wrap {
+            .tit_box {
+              position: relative;
+              .sub_tit {
+                display: flex;
+                gap: 1.8rem;
+                justify-content: center;
+                align-items: center;
+                .h1_sub {
+                  position: relative;
+                  font-size: 1.6rem;
+                  font-weight: $semiBold;
+                  letter-spacing: -0.02em;
+                  color: #222122;
+                  &::before {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    top: 0.5rem;
+                    left: -0.9rem;
+                    width: 0.1rem;
+                    height: 0.9rem;
+                    background-color: #CECECE;
+                  }
+                }
+              }
+              h1 {
+                justify-content: center;
+                .h1_sub {
+                  display: none;
+                }
+              }
+            }
+          }
+        }
+      }
+      .project_list_wrap {
+        .content_wrap {
+          .tab_wrap {
+            h3 {
+              margin-bottom: 1.2rem;
+              font-size: 2.6rem;
+              line-height: 4.4rem;
+            }
+            .tab_btn_wrap {
+              overflow-y: hidden;
+              overflow-x: auto;
+              gap: 0.8rem;
+              flex-wrap: nowrap;
+              width: calc(100% + 4rem);
+              margin-left: -2rem;
+              margin-bottom: 3.6rem;
+              padding: 0 2rem;
+              .btn_tab_project {
+                flex-shrink: 0;
+                height: 4rem;
+                padding: 0 1.4rem;
+                font-size: 1.4rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

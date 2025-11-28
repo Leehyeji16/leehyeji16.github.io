@@ -1,0 +1,380 @@
+// Global
+@use "./variables" as *;
+
+// Layout
+@use "./header";
+@use "./footer";
+@use "./main";
+@use "./introduction";
+@use "./greenNews";
+@use "./carbonStory";
+@use "./responseProject";
+
+// Reset font-size: 1rem = 10px
+html {
+  font-size: 62.5%; // 16px * 0.625 = 10px
+}
+
+// Body
+body {
+  overflow-x: hidden;
+  font-family: $font-Pretendard;
+  font-size: 1.6rem; // 16px
+  color: $black;
+  line-height: 1.6;
+
+  &.is_nav_open {
+    overflow-y: hidden;
+  }
+}
+
+#wrap {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  .content_wrap {
+    position: relative;
+    max-width: 132rem;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 6rem;
+  }
+
+  input,
+  textarea {
+    font-family: "Pretendard", sans-serif;
+  }
+
+  .pc_hidden {
+    display: none !important;
+  }
+
+  .mo_hidden {
+    display: block !important;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  // 공통요소
+  .common_tit_wrap {
+    display: flex;
+    gap: 2rem;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-bottom: 5rem;
+    .tit_box {
+      .sub_tit {
+        margin-bottom: 0.8rem;
+        font-size: 1.6rem;
+        font-weight: $semiBold;
+        letter-spacing: -0.02em;
+        color: #228B18;
+      }
+      h1 {
+        margin-bottom: 2rem;
+        font-size: 4.8rem;
+        font-weight: $bold;
+      }
+      h2 {
+        font-size: 2.4rem;
+        font-weight: $semiBold;
+      }
+    }
+    .breadcrumb_nav {
+      display: flex;
+      gap: 2.4rem;
+      align-items: center;
+      padding-top: 5rem;
+      .breadcrumb_home {
+        display: flex;
+        gap: 0.7rem;
+        align-items: center;
+        position: relative;
+        font-size: 1.4rem;
+        font-weight: $semiBold;
+        color: #222122;
+        &::before {
+          content: '';
+          display: block;
+          width: 1.6rem;
+          height: 1.6rem;
+          background: url(../images/common/ic_home.svg) no-repeat center/cover;
+        }
+        &::after {
+          pointer-events: none;
+          content: '/';
+          position: absolute;
+          top: 0;
+          right: -1.5rem;
+          color: #DFDFDF;
+        }
+      }
+      .breadcrumb_list_wrap {
+        position: relative;
+        .btn_location {
+          display: flex;
+          gap: 0.6rem;
+          align-items: center;
+          font-size: 1.4rem;
+          font-weight: $semiBold;
+          &::after {
+            content: '';
+            display: block;
+            width: 1.2rem;
+            height: 1.2rem;
+            background: url(../images/common/ic_arrow_breadcrumb.svg) no-repeat center/cover;
+          }
+        }
+        .breadcrumb_list {
+          opacity: 0;
+          pointer-events: none;
+          display: flex;
+          gap: 1.4rem;
+          flex-direction: column;
+          position: absolute;
+          top: 2.9rem;
+          right: -1.1rem;
+          z-index: 2;
+          min-width: 19.3rem;
+          padding: 2rem;
+          background-color: $white;
+          box-shadow: 0 0 1.5rem 0 rgba(0, 0, 0, 0.08);
+          border-radius: 2rem;
+          &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: -2rem;
+            left: 0;
+            width: 100%;
+            height: 2rem;
+          }
+          li {
+            a {
+              display: block;
+              width: 100%;
+              font-size: 1.6rem;
+              font-weight: $medium;
+              color: #767676;
+              &.active {
+                font-weight: $bold;
+                color: #222122;
+              }
+            }
+          }
+        }
+        &:hover {
+          .breadcrumb_list {
+            opacity: 1;
+            pointer-events: auto;
+          }
+        }
+      }
+      .breadcrumb_detail {
+        position: relative;
+        font-size: 1.4rem;
+        font-weight: $semiBold;
+        &::after {
+          pointer-events: none;
+          content: '/';
+          position: absolute;
+          top: 0;
+          left: -1.5rem;
+          color: #DFDFDF;
+        }
+      }
+    }
+  }
+  .common_banner_wrap {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 40rem;
+    border-radius: 2rem;
+    margin-bottom: 7rem;
+    .bg {
+      width: 100%;
+      height: 100%;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    .txt_box {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      .banner_tit {
+        font-size: 3.4rem;
+        font-weight: $bold;
+        line-height: 4.4rem;
+      }
+      .banner_txt {
+        margin-top: 1.6rem;
+        font-size: 1.6rem;
+        font-weight: $semiBold;
+      }
+    }
+  }
+  .pagination {
+    display: flex;
+    gap: 3.2rem;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8rem;
+    .prev,
+    .next {
+      display: block;
+      width: 1.8rem;
+      height: 1.8rem;
+      background: url(../images/sub/greenNews/ic_arrow_pagination.svg) no-repeat center/cover;
+      &.disabled {
+        opacity: 0.14;
+      }
+    }
+    .prev {
+      transform: scaleX(-1);
+    }
+    .pagination_num {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      li {
+        a {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 3.6rem;
+          height: 3.6rem;
+          border-radius: 0.8rem;
+          font-size: 1.8rem;
+          font-weight: $medium;
+          letter-spacing: -0.02em;
+          color: $black;
+          &.active {
+            background-color: #E9F3E8;
+            color: #228B18;
+          }
+        }
+      }
+    }
+  }
+}
+
+:root {
+  --vh: 1vh;
+}
+
+.flex_col {
+  display: flex;
+  flex-direction: column;
+}
+.flex_sb {
+  display: flex;
+  justify-content: space-between;
+}
+.flex {
+  display: flex;
+}
+.flex_end {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.position_relative {
+  position: relative;
+}
+
+// 스크린 리더 전용 텍스트 (접근성)
+.sr-only {
+  position: absolute;
+  width: 0.1rem;
+  height: 0.1rem;
+  padding: 0;
+  margin: -0.1rem;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+
+@media (max-width: 768px) {
+  
+  #wrap {
+    .pc_hidden {
+      display: block !important;
+    }
+  
+    .mo_hidden {
+      display: none !important;
+    }
+    .content_wrap {
+      padding: 0 2rem;
+    }
+
+    .common_tit_wrap {
+      margin-bottom: 3.6rem;
+      .tit_box {
+        width: 100%;
+        text-align: center;
+        h1 {
+          margin-bottom: 1.4rem;
+          font-size: 3.6rem;
+          word-break: keep-all;
+        }
+        h2 {
+          font-size: 1.6rem;
+          word-break: keep-all;
+        }
+      }
+      .breadcrumb_nav {
+        display: none;
+      }
+    }
+    .common_banner_wrap {
+      margin-bottom: 5rem;
+      height: 38.3rem;
+      .txt_box {
+        width: 100%;
+        .banner_tit {
+          font-size: 2.8rem;
+          line-height: 3.6rem;
+        }
+        .banner_txt {
+          margin-top: 1.4rem;
+          font-weight: $medium;
+          word-break: keep-all;
+        }
+      }
+    }
+    .pagination {
+      margin-top: 5rem;
+      .prev,
+      .next {
+        width: 1.6rem;
+        height: 1.6rem;
+      }
+      .pagination_num {
+        li {
+          a {
+            width: 3.2rem;
+            height: 3.2rem;
+            font-size: 1.6rem;
+          }
+        }
+      }
+    }
+  }
+}
